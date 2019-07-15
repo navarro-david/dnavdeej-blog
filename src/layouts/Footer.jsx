@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { SocialIcon } from 'react-social-icons'
 
 const Wrapper = styled.footer`
   position: relative;
@@ -19,6 +20,9 @@ const Text = styled.div`
   padding-bottom: 2rem;
   text-align: center;
   color: ${props => props.theme.colors.white.light};
+  > * {
+    margin: 0 .25rem;
+  }
 `;
 
 const Footer = () => (
@@ -27,6 +31,9 @@ const Footer = () => (
       <span>
         David Navarro
       </span>
+      <SocialIcon url='https://www.linkedin.com/in/navarrodavidjer/' bgColor='#f0f0f0' style={{ height: 20, width: 20 }}/>
+      <SocialIcon url='https://www.instagram.com/dnavdesign/' bgColor='#f0f0f0' style={{ height: 20, width: 20 }}/>
+      <SocialIcon url='https://github.com/navarro-david' bgColor='#f0f0f0' style={{ height: 20, width: 20 }}/>
     </Text>
   </Wrapper>
 );
