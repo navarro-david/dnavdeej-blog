@@ -8,6 +8,10 @@ import { Container } from 'layouts';
 
 const Wrapper = styled.article`
   margin: 0 3rem;
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    margin: 0;
+  }
 `;
 
 const Image = styled.div`
