@@ -18,7 +18,7 @@ const Wrapper = styled.header`
     -webkit-clip-path: ellipse(100% 55% at 48% 44%);
     clip-path: ellipse(100% 55% at 48% 44%);
   }
-  background: ${props => props.theme.gradient.rightToLeft};
+  background: ${props => props.bgColor ? props.bgColor : props.theme.gradient.rightToLeft};
   height: 300px;
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     height: 300px;
@@ -52,8 +52,8 @@ const Subtitle = styled.p`
   color: ${props => props.theme.colors.white.light};
 `;
 
-const Header = ({ children, title, date, cover }) => (
-  <Wrapper>
+const Header = ({ children, title, date, cover, bgColor }) => (
+  <Wrapper bgColor={bgColor}>
     <Img fluid={cover || {} || [] || ''} />
     <Text>
       <h1>{title}</h1>
