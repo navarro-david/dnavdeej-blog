@@ -6,4 +6,4 @@ title: "Welcome Post"
 published: true
 tags: ['other']
 ---
-Welcome to my blog. My name is David Navarro. Come! Stay a while as we travel through this thing called life.
+Welcome to my blog. My name is David Navarro. Here, I will capture some of my thought processes as I pursue creating various projects. Come! Stay a while as we travel through this thing called life.
