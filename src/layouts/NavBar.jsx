@@ -44,22 +44,26 @@ class NavBar extends React.Component {
     super(props);
 
     this.state = {
-      hamburgerColor: '#fff'
+      hamburgerColor: '#fff',
+      menuOpened: false
     }
   }
 
   handleOnPin(){
     this.setState({hamburgerColor: '#333438'})
-    console.log('onPin')
   }
 
   handleOnUnfix(){
     this.setState({hamburgerColor: '#fff'})
-    console.log('onUnfix')
+  }
+
+  handleMenuClicked(){
+    this.setState({menuOpened: !this.state.menuOpened})
   }
 
   render(){
     const hamburgerColor = this.state.hamburgerColor;
+    const menuOpened = this.state.menuOpened;
     return(
       <Headroom calcHeightOnResize disableInlineStyles
         onPin={() => this.handleOnPin()}
@@ -74,6 +78,8 @@ class NavBar extends React.Component {
           <Link to="/blog">Blog</Link>
           <Menu>
             <HamburgerMenu
+              isOpen={menuOpened}
+              menuClicked={() => this.handleMenuClicked()}
               width={18}
               height={15}
               strokeWidth={2}
