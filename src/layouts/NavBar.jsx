@@ -33,19 +33,61 @@ const Nav = styled.nav`
   }
 `;
 
+const Menu = styled.div`
+  margin-left: 2rem;
+`;
 
-const NavBar = () => (
-  <Headroom calcHeightOnResize disableInlineStyles>
-    <Nav>
-      <StyledLink to="/">
-        dnavdeej
-      </StyledLink>
-    </Nav>
-    <Nav>
-      <Link to="/blog">Blog</Link>
-      {/* <Link to="/about">Projects</Link> */}
-    </Nav>
-  </Headroom>
-);
+
+class NavBar extends React.Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      hamburgerColor: '#fff'
+    }
+  }
+
+  handleOnPin(){
+    this.setState({hamburgerColor: '#333438'})
+    console.log('onPin')
+  }
+
+  handleOnUnfix(){
+    this.setState({hamburgerColor: '#fff'})
+    console.log('onUnfix')
+  }
+
+  render(){
+    const hamburgerColor = this.state.hamburgerColor;
+    return(
+      <Headroom calcHeightOnResize disableInlineStyles
+        onPin={() => this.handleOnPin()}
+        onUnfix={() => this.handleOnUnfix()}
+        >
+        <Nav>
+          <StyledLink to="/">
+            dnavdeej
+          </StyledLink>
+        </Nav>
+        <Nav>
+          <Link to="/blog">Blog</Link>
+          <Menu>
+            <HamburgerMenu
+              width={18}
+              height={15}
+              strokeWidth={2}
+              rotate={0}
+              borderRadius={0}
+              animationDuration={0.5}
+              color={hamburgerColor}
+            />
+          </Menu>
+        </Nav>
+      </Headroom>
+    )
+  }
+}
+
 
 export default NavBar;
