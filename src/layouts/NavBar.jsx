@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import Headroom from 'react-headroom';
-import logo from '../../static/logo/header-logo.png';
+
+import HamburgerMenu from 'react-hamburger-menu';
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -42,7 +43,7 @@ const NavBar = () => (
     </Nav>
     <Nav>
       <Link to="/blog">Blog</Link>
-      <Link to="/about">Projects</Link>
+      {/* <Link to="/about">Projects</Link> */}
     </Nav>
   </Headroom>
 );
