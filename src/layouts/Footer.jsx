@@ -28,9 +28,6 @@ const Text = styled.div`
 const Footer = () => (
   <Wrapper>
     <Text>
-      <span>
-        David Navarro
-      </span>
       <SocialIcon url='https://www.linkedin.com/in/dnavdeej/' bgColor='#f0f0f0' style={{ height: 20, width: 20 }}/>
       <SocialIcon url='https://www.instagram.com/dnavdesign/' bgColor='#f0f0f0' style={{ height: 20, width: 20 }}/>
       <SocialIcon url='https://github.com/navarro-david' bgColor='#f0f0f0' style={{ height: 20, width: 20 }}/>

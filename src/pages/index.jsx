@@ -6,6 +6,8 @@ import styled from '@emotion/styled';
 import { Header, PostList } from 'components';
 import { Layout } from 'layouts';
 
+import logo from '../../static/logo/logo-white.png'
+
 const PostWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -20,12 +22,22 @@ const PostWrapper = styled.div`
   }
 `;
 
+const Logo = styled.div`
+  width: 160px;
+  height: 160px;
+  margin-top: -2rem;
+`;
+
 const Index = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
     <Layout>
       <Helmet title={'Home Page'} />
-      <Header title="Home Page">Gatsby Tutorial Starter</Header>
+      <Header>
+        <Logo>
+          <img src={logo}></img>
+        </Logo>
+      </Header>
       <PostWrapper>
         {edges.map(({ node }) => (
           <PostList

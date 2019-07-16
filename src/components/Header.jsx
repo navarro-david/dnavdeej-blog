@@ -15,8 +15,8 @@ const Wrapper = styled.header`
   -webkit-clip-path: ellipse(100% 55% at 48% 44%);
   clip-path: ellipse(100% 55% at 48% 44%);
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    -webkit-clip-path: ellipse(100% 55% at 48% 44%);
-    clip-path: ellipse(100% 55% at 48% 44%);
+    -webkit-clip-path: ellipse(100% 55% at 60% 44%);
+    clip-path: ellipse(100% 55% at 60% 44%);
   }
   background: ${props => props.bgColor ? props.bgColor : props.theme.gradient.rightToLeft};
   height: 300px;
