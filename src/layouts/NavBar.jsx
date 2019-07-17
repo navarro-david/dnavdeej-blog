@@ -61,12 +61,16 @@ const MenuBackdrop = styled.div`
 const MenuLink = styled(Link)`
   margin: .25rem 0;
   font-weight: 500;
+  transition: ${props => props.theme.transitions.boom.transition};
   color: ${props => props.theme.colors.black.base}
   &:link{
     color: ${props => props.theme.colors.black.base}
   }
   &:visited{
     color: ${props => props.theme.colors.black.base}
+  }
+  &:hover{
+    font-weight: 900;
   }
 `;
 
@@ -85,8 +89,13 @@ class NavBar extends React.Component {
     this.setState({hamburgerColor: '#333438'})
   }
 
+  handleOnUnpin(){
+    this.setState({menuOpened: false})
+  }
+
   handleOnUnfix(){
-    this.setState({hamburgerColor: '#fff'})
+    this.setState({
+      hamburgerColor: '#fff'})
   }
 
   handleMenuClicked(){
@@ -99,6 +108,7 @@ class NavBar extends React.Component {
     return(
       <Headroom calcHeightOnResize disableInlineStyles
         onPin={() => this.handleOnPin()}
+        onUnpin={() => this.handleOnUnpin()}
         onUnfix={() => this.handleOnUnfix()}
         >
         <Nav>
