@@ -43,7 +43,7 @@ const MenuBackdrop = styled.div`
   left: 0;
   right: 0;
   padding: 5rem;
-  background: #f0f0f0;
+  background: rgba(	240, 240, 240, 0.95);
   box-shadow: ${props => props.theme.shadow.feature.small.hover};
 
   transition: ${props => props.theme.transitions.boom.transition};
@@ -58,8 +58,16 @@ const MenuBackdrop = styled.div`
   
 `;
 
-const MenuLinks = styled(Link)`
+const MenuLink = styled(Link)`
+  margin: .25rem 0;
+  font-weight: 500;
   color: ${props => props.theme.colors.black.base}
+  &:link{
+    color: ${props => props.theme.colors.black.base}
+  }
+  &:visited{
+    color: ${props => props.theme.colors.black.base}
+  }
 `;
 
 class NavBar extends React.Component {
@@ -121,8 +129,8 @@ class NavBar extends React.Component {
             } : 
             { opacity: '0',
               pointerEvents: 'none'}}>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <MenuLink to="/">Home</MenuLink>
+          <MenuLink to="/about">About</MenuLink>
         </MenuBackdrop>
       </Headroom>
     )
