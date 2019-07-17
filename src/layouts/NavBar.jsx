@@ -33,10 +33,34 @@ const Nav = styled.nav`
   }
 `;
 
-const Menu = styled.div`
+const MenuIcon = styled.div`
   margin-left: 2rem;
 `;
 
+const MenuBackdrop = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 5rem;
+  background: #f0f0f0;
+  box-shadow: ${props => props.theme.shadow.feature.small.hover};
+
+  transition: ${props => props.theme.transitions.boom.transition};
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+`;
+
+const MenuLinks = styled(Link)`
+  color: ${props => props.theme.colors.black.base}
+`;
 
 class NavBar extends React.Component {
 
@@ -76,7 +100,7 @@ class NavBar extends React.Component {
         </Nav>
         <Nav>
           <Link to="/blog">Blog</Link>
-          <Menu>
+          <MenuIcon>
             <HamburgerMenu
               isOpen={menuOpened}
               menuClicked={() => this.handleMenuClicked()}
@@ -88,8 +112,18 @@ class NavBar extends React.Component {
               animationDuration={0.5}
               color={hamburgerColor}
             />
-          </Menu>
+          </MenuIcon>
         </Nav>
+        <MenuBackdrop
+          style={menuOpened ? 
+            { opacity: '1',
+              pointerEvents: 'auto'
+            } : 
+            { opacity: '0',
+              pointerEvents: 'none'}}>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </MenuBackdrop>
       </Headroom>
     )
   }
