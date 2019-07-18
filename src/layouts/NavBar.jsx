@@ -80,7 +80,7 @@ class NavBar extends React.Component {
     super(props);
 
     this.state = {
-      menuFixed: true,
+      menuFixed: false,
       menuOpened: false
     }
   }
