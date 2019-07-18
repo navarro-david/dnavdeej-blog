@@ -12,12 +12,12 @@ export const colors = {
   },
   primary: {
     base: '#3498db',
-    light: '#b271a3',
-    dark: '#71B280',
+    light: '#3498db',
+    dark: '#29323c',
   },
   background: {
-    light: '#71B280',
-    dark: '#134E5E',
+    light: '#485563',
+    dark: '#29323c',
   },
 };
 

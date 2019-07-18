@@ -6,8 +6,7 @@ const Wrapper = styled.footer`
   position: relative;
   padding-top: 1rem;
   bottom: 0;
-  box-shadow: ${props => props.theme.shadow.footer};
-  background: ${props => props.theme.gradient.leftToRight};
+  background: ${props => props.bgColor ? props.bgColor : props.theme.gradient.rightToLeft};
   font-family: ${props => props.theme.fontFamily.body};
   font-weight: 500;
 `;
@@ -25,9 +24,9 @@ const Text = styled.div`
 const Footer = () => (
   <Wrapper>
     <Text>
-      <SocialIcon url='https://www.linkedin.com/in/dnavdeej/' bgColor='#f0f0f0' style={{ height: 20, width: 20 }}/>
-      <SocialIcon url='https://www.instagram.com/dnavdesign/' bgColor='#f0f0f0' style={{ height: 20, width: 20 }}/>
-      <SocialIcon url='https://github.com/navarro-david' bgColor='#f0f0f0' style={{ height: 20, width: 20 }}/>
+      <SocialIcon url='https://www.linkedin.com/in/dnavdeej/' bgColor='#ffffff' style={{ height: 20, width: 20 }}/>
+      <SocialIcon url='https://www.instagram.com/dnavdesign/' bgColor='#ffffff' style={{ height: 20, width: 20 }}/>
+      <SocialIcon url='https://github.com/navarro-david' bgColor='#ffffff' style={{ height: 20, width: 20 }}/>
     </Text>
   </Wrapper>
 );

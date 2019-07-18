@@ -42,14 +42,14 @@ const MenuBackdrop = styled.div`
   top: 100%;
   left: 0;
   right: 0;
-  padding: 5rem;
-  background: rgba(	240, 240, 240, 0.95);
-  box-shadow: ${props => props.theme.shadow.feature.small.hover};
+  padding: 5rem 0;
+  background: ${props => props.menuFixed ? 'rgba(	240, 240, 240, 0.97)' : 'rgba(41, 50, 60, 0.97)'};
+  box-shadow: ${props => props.theme.shadow.feature.big.default};
 
   transition: ${props => props.theme.transitions.boom.transition};
   overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
+  opacity: ${props => props.menuOpened ? '1' : '0'};
+  pointer-events: ${props => props.menuOpened ? 'auto' : 'none'};
 
   display: flex;
   flex-direction: column;
@@ -62,12 +62,12 @@ const MenuLink = styled(Link)`
   margin: .25rem 0;
   font-weight: 500;
   transition: ${props => props.theme.transitions.boom.transition};
-  color: ${props => props.theme.colors.black.base}
+  color: ${props => props.menuFixed ? props.theme.colors.black.base : props.theme.colors.white.base};
   &:link{
-    color: ${props => props.theme.colors.black.base}
+    color: ${props => props.menuFixed ? props.theme.colors.black.base : props.theme.colors.white.base};
   }
   &:visited{
-    color: ${props => props.theme.colors.black.base}
+    color: ${props => props.menuFixed ? props.theme.colors.black.base : props.theme.colors.white.base};
   }
   &:hover{
     font-weight: 900;
@@ -80,13 +80,13 @@ class NavBar extends React.Component {
     super(props);
 
     this.state = {
-      hamburgerColor: '#fff',
+      menuFixed: true,
       menuOpened: false
     }
   }
 
   handleOnPin(){
-    this.setState({hamburgerColor: '#333438'})
+    this.setState({menuFixed: true})
   }
 
   handleOnUnpin(){
@@ -94,8 +94,7 @@ class NavBar extends React.Component {
   }
 
   handleOnUnfix(){
-    this.setState({
-      hamburgerColor: '#fff'})
+    this.setState({menuFixed: false})
   }
 
   handleMenuClicked(){
@@ -103,7 +102,7 @@ class NavBar extends React.Component {
   }
 
   render(){
-    const hamburgerColor = this.state.hamburgerColor;
+    const menuFixed = this.state.menuFixed;
     const menuOpened = this.state.menuOpened;
     return(
       <Headroom calcHeightOnResize disableInlineStyles
@@ -128,19 +127,16 @@ class NavBar extends React.Component {
               rotate={0}
               borderRadius={0}
               animationDuration={0.5}
-              color={hamburgerColor}
+              color={menuFixed ? '#333438' : '#fff'}
             />
           </MenuIcon>
         </Nav>
         <MenuBackdrop
-          style={menuOpened ? 
-            { opacity: '1',
-              pointerEvents: 'auto'
-            } : 
-            { opacity: '0',
-              pointerEvents: 'none'}}>
-          <MenuLink to="/">Home</MenuLink>
-          <MenuLink to="/about">About</MenuLink>
+          menuOpened={menuOpened}
+          menuFixed={menuFixed}
+          >
+          <MenuLink menuFixed={menuFixed} to="/">Home</MenuLink>
+          <MenuLink menuFixed={menuFixed} to="/about">About</MenuLink>
         </MenuBackdrop>
       </Headroom>
     )
