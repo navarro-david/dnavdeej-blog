@@ -32,7 +32,7 @@ const Index = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
     <Layout>
-      <Helmet title={'Home Page'} />
+      <Helmet title={'dnavdeej | Home Page'} />
       <Header>
         <Logo>
           <img src={logo}></img>
