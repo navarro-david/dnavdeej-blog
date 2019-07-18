@@ -3,14 +3,6 @@ import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 
-// Default Clip Path
-// -webkit-clip-path: polygon(100% 0, 0 0, 0 70%, 50% 100%, 100% 70%);
-//   clip-path: polygon(100% 0, 0 0, 0 70%, 50% 100%, 100% 70%);
-
-// Default Breakpoint Clip Path
-// -webkit-clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
-//     clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
-
 const Wrapper = styled.header`
   -webkit-clip-path: ellipse(100% 55% at 48% 44%);
   clip-path: ellipse(100% 55% at 48% 44%);

@@ -16,7 +16,7 @@ const TagsContainer = styled.div`
     background: ${props => props.theme.colors.white.grey};
     border-radius: 10px;
     &:hover {
-      color: ${props => props.theme.colors.white.light};
+      color: ${props => props.theme.colors.white.base};
       background: ${props => props.theme.colors.primary.light};
       border: ${props => props.theme.colors.primary.light};
     }

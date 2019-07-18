@@ -43,7 +43,7 @@ const MenuBackdrop = styled.div`
   left: 0;
   right: 0;
   padding: 5rem 0;
-  background: ${props => props.menuFixed ? 'rgba(	240, 240, 240, 0.97)' : 'rgba(41, 50, 60, 0.97)'};
+  background: ${props => props.navbarFixed ? 'rgba(	240, 240, 240, 0.97)' : 'rgba(41, 50, 60, 0.97)'};
   box-shadow: ${props => props.theme.shadow.feature.big.default};
 
   transition: ${props => props.theme.transitions.boom.transition};
@@ -62,12 +62,12 @@ const MenuLink = styled(Link)`
   margin: .25rem 0;
   font-weight: 500;
   transition: ${props => props.theme.transitions.boom.transition};
-  color: ${props => props.menuFixed ? props.theme.colors.black.base : props.theme.colors.white.base};
+  color: ${props => props.navbarFixed ? props.theme.colors.black.base : props.theme.colors.white.base};
   &:link{
-    color: ${props => props.menuFixed ? props.theme.colors.black.base : props.theme.colors.white.base};
+    color: ${props => props.navbarFixed ? props.theme.colors.black.base : props.theme.colors.white.base};
   }
   &:visited{
-    color: ${props => props.menuFixed ? props.theme.colors.black.base : props.theme.colors.white.base};
+    color: ${props => props.navbarFixed ? props.theme.colors.black.base : props.theme.colors.white.base};
   }
   &:hover{
     font-weight: 900;
@@ -80,13 +80,13 @@ class NavBar extends React.Component {
     super(props);
 
     this.state = {
-      menuFixed: false,
+      navbarFixed: false,
       menuOpened: false
     }
   }
 
   handleOnPin(){
-    this.setState({menuFixed: true})
+    this.setState({navbarFixed: true})
   }
 
   handleOnUnpin(){
@@ -94,7 +94,7 @@ class NavBar extends React.Component {
   }
 
   handleOnUnfix(){
-    this.setState({menuFixed: false})
+    this.setState({navbarFixed: false})
   }
 
   handleMenuClicked(){
@@ -102,7 +102,7 @@ class NavBar extends React.Component {
   }
 
   render(){
-    const menuFixed = this.state.menuFixed;
+    const navbarFixed = this.state.navbarFixed;
     const menuOpened = this.state.menuOpened;
     return(
       <Headroom calcHeightOnResize disableInlineStyles
@@ -127,16 +127,16 @@ class NavBar extends React.Component {
               rotate={0}
               borderRadius={0}
               animationDuration={0.5}
-              color={menuFixed ? '#333438' : '#fff'}
+              color={navbarFixed ? '#333438' : '#fff'}
             />
           </MenuIcon>
         </Nav>
         <MenuBackdrop
           menuOpened={menuOpened}
-          menuFixed={menuFixed}
+          navbarFixed={navbarFixed}
           >
-          <MenuLink menuFixed={menuFixed} to="/">Home</MenuLink>
-          <MenuLink menuFixed={menuFixed} to="/about">About</MenuLink>
+          <MenuLink navbarFixed={navbarFixed} to="/">Home</MenuLink>
+          <MenuLink navbarFixed={navbarFixed} to="/about">About</MenuLink>
         </MenuBackdrop>
       </Headroom>
     )
